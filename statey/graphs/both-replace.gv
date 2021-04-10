@@ -1,0 +1,24 @@
+digraph {
+	"key/output"
+	"security_group_2/current/input"
+	"security_group_2/current/task/delete"
+	"security_group_2/config/input"
+	"security_group_2/config/output"
+	"security_group_2/config/task/create"
+	"instance/current/input"
+	"instance/current/task/delete"
+	"instance/config/input"
+	"instance/config/output"
+	"instance/config/task/create"
+	"key/output" -> "instance/config/input" [color=green]
+	"security_group_2/current/input" -> "security_group_2/current/task/delete" [color=green]
+	"security_group_2/current/task/delete" -> "security_group_2/config/input" [color=green]
+	"security_group_2/config/input" -> "security_group_2/config/task/create" [color=green]
+	"security_group_2/config/output" -> "instance/config/input" [color=green]
+	"security_group_2/config/task/create" -> "security_group_2/config/output" [color=green]
+	"instance/current/input" -> "instance/current/task/delete" [color=green]
+	"instance/current/task/delete" -> "instance/config/input" [color=green]
+	"instance/current/task/delete" -> "security_group_2/current/input" [color=green]
+	"instance/config/input" -> "instance/config/task/create" [color=green]
+	"instance/config/task/create" -> "instance/config/output" [color=green]
+}

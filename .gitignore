@@ -1,0 +1,29 @@
+*.pyc
+venv/
+
+*.swp
+package-lock.json
+__pycache__
+.pytest_cache
+.env
+.venv
+*.egg-info
+
+# CDK asset staging directory
+.cdk.staging
+cdk.out
+cdk.context.json
+
+# Terraform
+.terraform
+terraform.tfstate
+terraform.tfstate.backup
+
+# Statey
+.statey-state.json
+
+/iac-test-key
+/iac-test-key.pub
+
+# pyenv
+.python-version
