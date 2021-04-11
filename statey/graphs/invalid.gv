@@ -1,20 +1,20 @@
 digraph {
 	"key/output"
-	"security_group_2/current/input"
-	"security_group_2/current/task/delete"
-	"security_group_2/config/input"
-	"security_group_2/config/output"
-	"security_group_2/config/task/create"
+	"security_group/current/input"
+	"security_group/current/task/delete"
+	"security_group/config/input"
+	"security_group/config/output"
+	"security_group/config/task/create"
 	"instance/input"
 	"instance/output"
 	"instance/task/modify"
 	"key/output" -> "instance/input" [color=green]
-	"security_group_2/current/input" -> "security_group_2/current/task/delete" [color=green]
-	"security_group_2/current/task/delete" -> "security_group_2/config/input" [color=green]
-	"security_group_2/config/input" -> "security_group_2/config/task/create" [color=green]
-	"security_group_2/config/output" -> "instance/input" [color=green]
-	"security_group_2/config/task/create" -> "security_group_2/config/output" [color=green]
+	"security_group/current/input" -> "security_group/current/task/delete" [color=green]
+	"security_group/current/task/delete" -> "security_group/config/input" [color=green]
+	"security_group/config/input" -> "security_group/config/task/create" [color=green]
+	"security_group/config/output" -> "instance/input" [color=green]
+	"security_group/config/task/create" -> "security_group/config/output" [color=green]
 	"instance/input" -> "instance/task/modify" [color=green]
-	"instance/output" -> "security_group_2/current/input" [color=red constraint=false]
+	"instance/output" -> "security_group/current/input" [color=red constraint=false]
 	"instance/task/modify" -> "instance/output" [color=green]
 }
