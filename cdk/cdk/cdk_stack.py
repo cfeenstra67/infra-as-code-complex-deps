@@ -15,7 +15,6 @@ class TestStack(cdk.Stack):
             self,
             "test_sg",
             vpc=vpc,
-            # description="This is my security group.",
             allow_all_outbound=True,
         )
 
@@ -31,7 +30,6 @@ class TestStack(cdk.Stack):
             key_name="app_key-d2f12cf",
             vpc=vpc,
             security_group=security_group,
-            # user_data="#",
         )
 
         public_ip = cdk.CfnOutput(self, "public_ip", value=instance.instance_public_ip)

@@ -1,0 +1,13 @@
+digraph {
+	"instance/input"
+	"instance/task/delete"
+	"security_group/input"
+	"security_group/task/delete"
+	"key/input"
+	"key/task/delete"
+	"instance/input" -> "instance/task/delete" [color=green]
+	"instance/task/delete" -> "key/input" [color=green]
+	"instance/task/delete" -> "security_group/input" [color=green]
+	"security_group/input" -> "security_group/task/delete" [color=green]
+	"key/input" -> "key/task/delete" [color=green]
+}

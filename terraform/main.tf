@@ -7,14 +7,14 @@ provider "aws" {
   region = var.aws_region
 }
 
-resource "aws_key_pair" "shnail" {
-  key_name = "shnail"
+resource "aws_key_pair" "test" {
+  key_name = "test"
   public_key = file("${path.module}/../iac-test-key.pub")
 }
 
 resource "aws_security_group" "test" {
-  name = "test_group"
-  # name = "test_group_1"
+  name_prefix = "test"
+  description = "This is used to restrict access to my instance. Managed by Terraform."
 
   ingress {
     from_port = 22
@@ -35,9 +35,9 @@ resource "aws_security_group" "test" {
 resource "aws_instance" "test" {
   ami = "ami-07d02ee1eeb0c996c"
   instance_type = "t2.micro"
-  key_name = aws_key_pair.shnail.key_name
+  key_name = aws_key_pair.test.key_name
   vpc_security_group_ids = [aws_security_group.test.id]
-  # user_data = "#"
+  user_data = "#"
 }
 
 output "instance_ip" {

@@ -1,0 +1,19 @@
+digraph {
+	"key/input"
+	"key/output"
+	"key/task/create"
+	"security_group/input"
+	"security_group/output"
+	"security_group/task/create"
+	"instance/input"
+	"instance/output"
+	"instance/task/create"
+	"key/input" -> "key/task/create" [color=green]
+	"key/output" -> "instance/input" [color=green]
+	"key/task/create" -> "key/output" [color=green]
+	"security_group/input" -> "security_group/task/create" [color=green]
+	"security_group/output" -> "instance/input" [color=green]
+	"security_group/task/create" -> "security_group/output" [color=green]
+	"instance/input" -> "instance/task/create" [color=green]
+	"instance/task/create" -> "instance/output" [color=green]
+}

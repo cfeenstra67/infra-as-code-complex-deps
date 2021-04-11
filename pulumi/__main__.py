@@ -9,7 +9,7 @@ with open("../iac-test-key.pub") as f:
 key = aws.ec2.KeyPair("shnail", public_key=public_key)
 
 security_group = aws.ec2.SecurityGroup(
-    "test_sg_2",
+    "test_sg",
     description="This is my security group.",
     ingress=[
         {
@@ -30,7 +30,6 @@ instance = aws.ec2.Instance(
     instance_type="t2.micro",
     key_name=key.key_name,
     vpc_security_group_ids=[security_group.id],
-    # user_data="#",
 )
 
 pulumi.export("public_ip", instance.public_ip)
